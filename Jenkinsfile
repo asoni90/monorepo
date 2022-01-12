@@ -4,7 +4,8 @@ pipeline {
         stage('Stage 1') {
             steps {
               echo "${env.BRANCH_NAME}"
-              echo "${env.CHANGE_BRANCH}" 
+              echo "${env.CHANGE_ID}"
+                echo "${env.CHANGE_TARGET}"
             }
         }
     }
