@@ -3,10 +3,12 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-              echo "${env.BRANCH_NAME}"
-              echo "${env.CHANGE_ID}"
-              echo "${env.CHANGE_TARGET}"
-              echo "${env.GIT_BRANCH}"
+                def ret = sh(script: 'echo ${env.BRANCH_NAME}', returnStdout: true)
+                println ret
+                echo "${env.BRANCH_NAME}"
+                echo "${env.CHANGE_ID}"
+                echo "${env.CHANGE_TARGET}"
+                echo "${env.GIT_BRANCH}"
             }
         }
     }
