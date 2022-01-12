@@ -1,15 +1,6 @@
-pipeline {
-    agent any 
-    stages {
-        stage('Stage 1') {
-            steps {
-                def ret = sh(script: 'echo ${env.BRANCH_NAME}', returnStdout: true)
-                println ret
-                echo "${env.BRANCH_NAME}"
-                echo "${env.CHANGE_ID}"
-                echo "${env.CHANGE_TARGET}"
-                echo "${env.GIT_BRANCH}"
-            }
-        }
-    }
+node {
+  def ret = sh(script: '${env.BRANCH_NAME}', returnStdout: true)
+  stage('Print ENV') {
+      sh '${ret}'
+  }
 }
